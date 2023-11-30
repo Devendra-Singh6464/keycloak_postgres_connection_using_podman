@@ -209,7 +209,6 @@ To secure the first application, you start by registering the application with y
 
 From a terminal, enter the following command to start Keycloak:-
 
-
 > This command starts Keycloak exposed on the local port 8080 and creates an initial admin user with the username admin and password admin.
 
 I execute this command then i am go browser and write `localhost:8080`(localhost:port)
