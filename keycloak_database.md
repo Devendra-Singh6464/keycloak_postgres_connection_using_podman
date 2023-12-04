@@ -40,7 +40,7 @@ The server has built-in support for different databases. You can query the avail
 |Microsoft SQL Server|    mssql     |     2022       |
 |MySQL               |    mysql     |      8.0       |
 |Oracle Database     |    Oracle    |     19.3       |
-|PostgreSQL          |  postgres    |      15        |
+|PostgreSQL          |  postgres    |      16.1      |
 
  
 ## Install PostgreSQL on Ubuntu using the terminal
@@ -89,6 +89,10 @@ To exit the PostgreSQL prompt:
 ```
 \q
 ```
+```
+exit
+```
+
 
 ## CONNECT KEYCLOAK TO POSTGRES DATABASE USING PODMAN:
 
@@ -122,19 +126,32 @@ Check postgres default databases
 ```
 \l
 ```
- 
+stop the terminal
+```
+ctrl + z
+```
+```
+psql -U postgres
+```
 - If you want to create postgres database, try these queries:
 ```
-1. CREATE DATABASE keycloak;
+CREATE DATABASE keycloak;
 ```
 ```
-2. CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
+CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
 ```
 ```
-3. GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
+GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
 ```
 ```
-4. ALTER DATABASE keycloak OWNER TO keycloak;
+ALTER DATABASE keycloak OWNER TO keycloak;
+```
+Exit the postgres terminal
+```
+\q
+```
+```
+exit
 ```
  
 3. THIRD STEP:  
@@ -147,11 +164,15 @@ Going to root directory
 ```
 podman exec -it some-postgres bash
 ```
-```
+ ```
 psql -U keycloak
 ```
 ```
 \l
+```
+Go to browser and write 
+```
+localhost:8080
 ```
 ```
 \dt
