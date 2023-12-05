@@ -268,6 +268,7 @@ Type "help" for help.
 
 keycloak=#
 ```
+```
 \l
 ```
 ```
