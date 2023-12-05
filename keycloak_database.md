@@ -75,6 +75,7 @@ Once the installation is complete, PostgreSQL should start automatically. You ca
 ```
 sudo systemctl status postgresql
 ```
+Then: ctrl + z
 
 To access PostgreSQL, you can switch to the default postgres user, which is automatically created during installation:
 
@@ -101,50 +102,122 @@ exit
 ```
 podman pod create --name deepak -p 5432:5432 -p 8080:8080
 ```
+- Output:
+```
+podman pod create --name deepak -p 5432:5432 -p 8080:8080
+Container pod ID 
+```
+
 Check running container status :
 ```
 podman ps 
 ```
+- OutPut:
+```
+CONTAINER ID  IMAGE                               COMMAND     CREATED     STATUS           PORTS                                           NAMES
+```
+
 Check container status:
 ```
 podman ps -a
 ```
+- Output:
+```
+podman ps -a
+CONTAINER ID  IMAGE                               COMMAND     CREATED     STATUS           PORTS                                           NAMES
+713a2756f29f  k8s.gcr.io/pause:3.5                            7 days ago  Up 24 hours ago  0.0.0.0:5432->5432/tcp, 0.0.0.0:8080->8080/tcp  82148f547b1b-infra
+```
+
 2. Second Step —
 ```
 podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
+- Output:
+  
+```
+podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+container ID
 ```
 
 Inside the postgres terminal--
 ```
 podman exec -it some-postgres bash
 ```
+- Output:
+```
+podman exec -it some-postgres bash
+root@deepak:/# 
+```
 ```
 psql -U postgres
+```
+- Output:
+```
+root@deepak:/# psql -U postgres
+psql (16.1 (Debian 16.1-1.pgdg120+1))
+Type "help" for help.
+
+postgres=#
 ```
 
 Check postgres default databases    
 ```
 \l
 ```
-stop the terminal
+- Output:
+```
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
+ keycloak  | keycloak | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =Tc/keycloak         +
+           |          |          |                 |            |            |            |           | keycloak=CTc/keycloak
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+           |          |          |                 |            |            |            |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+           |          |          |                 |            |            |            |           | postgres=CTc/postgres
+(4 rows)
+```
+stop the postgres terminal
 ```
 ctrl + z
 ```
-```
-psql -U postgres
-```
-- If you want to create postgres database, try these queries:
+
+- Create postgres database, try these queries:
 ```
 CREATE DATABASE keycloak;
+```
+- Output:
+```
+postgres=# CREATE DATABASE keycloak;
+CREATE DATABASE
+postgres=# 
 ```
 ```
 CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
 ```
+- Output:
+```
+postgres=# CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
+CREATE ROLE
+postgres=# 
+```
 ```
 GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
 ```
+- Output:
+```
+postgres=# GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
+GRANT ALL
+postgres=# 
+```
 ```
 ALTER DATABASE keycloak OWNER TO keycloak;
+```
+- Output:
+```
+postgres=# ALTER DATABASE keycloak OWNER TO keycloak;
+ALTER DATABASE 
+postgres=#   
 ```
 Exit the postgres terminal
 ```
@@ -158,21 +231,44 @@ exit
 ``` 
 podman run --pod=deepak -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -e KC_DB=postgres -e KC_DB_URL_DATABASE=keycloak -e KC_DB_URL_HOST=0.0.0.0 -e KC_DB_URL_PORT=5432 -e KC_DB_USERNAME=keycloak -e KC_DB_PASSWORD=deepak docker.io/keycloak/keycloak:latest start-dev
 ```
+- Output:
+```
+podman run --pod=deepak -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -e KC_DB=postgres -e KC_DB_URL_DATABASE=keycloak -e KC_DB_URL_HOST=0.0.0.0 -e KC_DB_URL_PORT=5432 -e KC_DB_USERNAME=keycloak -e KC_DB_PASSWORD=deepak docker.io/keycloak/keycloak:latest start-dev
+Your CONTAINER ID
+deepak@deepak-Inspiron-3502:~$
+```
+Check container status:
+```
+podman ps -a
+```
+
+Go to browser and write 
+```
+localhost:8080
+```
 
 4. FINAL STEP:
 Going to root directory
 ```
 podman exec -it some-postgres bash
 ```
+- Output:
+```
+podman exec -it some-postgres bash
+root@deepak:/# 
+```
  ```
 psql -U keycloak
 ```
+- Output:
+```
+root@deepak:/# psql -U postgres
+psql (16.1 (Debian 16.1-1.pgdg120+1))
+Type "help" for help.
+
+keycloak=#
 ```
 \l
-```
-Go to browser and write 
-```
-localhost:8080
 ```
 ```
 \dt
