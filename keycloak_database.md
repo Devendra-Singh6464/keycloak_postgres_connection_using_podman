@@ -52,6 +52,7 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 ```
 sudo apt-get upgrade
 ```
+## output-
 ```
 deepak@deepak-Inspiron-3502:~$ sudo apt-get upgrade
 Reading package lists... Done
@@ -82,6 +83,9 @@ Install  keycloak....
 
 > Visit the Keycloak download page: [Keycloak Downloads](https://www.keycloak.org/downloads).   
 > Click to TAR.GZ(sha1) and Download keycloak.
+ 
+## After installation keycloak TAR.GZ(sha1) file unzip this file 
+Go, files > Download > right click (on keycloak TAR.GZ(sha1) file and) > click Exteact Here
 
 
 ## Supported databases
