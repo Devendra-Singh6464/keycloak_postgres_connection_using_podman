@@ -154,6 +154,9 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 ```
 sudo apt install postgresql postgresql-contrib
 ```
+## Another install postgresql source-
+
+[Postgresql install hint source in ubuntu](https://www.commandprompt.com/education/how-to-install-postgresql-database-on-ubuntu/)
 ```
 sudo apt-get update
 ```
