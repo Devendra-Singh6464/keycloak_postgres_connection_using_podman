@@ -155,6 +155,27 @@ Once the installation is complete, PostgreSQL should start automatically. You ca
 ```
 sudo systemctl status postgresql
 ```
+## output-
+```
+deepak@deepak-Inspiron-3502:~$ sudo systemctl status postgresql
+[sudo] password for deepak: 
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor pr>
+     Active: active (exited) since Wed 2023-12-20 16:15:34 IST; 5 days ago
+    Process: 1489 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 1489 (code=exited, status=0/SUCCESS)
+        CPU: 1ms
+
+Dec 20 16:15:34 deepak-Inspiron-3502 systemd[1]: Starting PostgreSQL RDBMS...
+Dec 20 16:15:34 deepak-Inspiron-3502 systemd[1]: Finished PostgreSQL RDBMS.
+lines 1-9/9 (END)
+```
+If postgresql.service not active so run this command
+
+```
+sudo systemctl start postgresql.service
+```
+
 Then: ctrl + z
 
 To access PostgreSQL, you can switch to the default postgres user, which is automatically created during installation:
@@ -162,18 +183,45 @@ To access PostgreSQL, you can switch to the default postgres user, which is auto
 ```
 sudo -i -u postgres
 ```
+## output-
+```
+deepak@deepak-Inspiron-3502:~$ sudo -i -u postgres
+postgres@deepak-Inspiron-3502:~$ 
+```
+
 Once you're logged in as the postgres user, access the PostgreSQL prompt by typing:
 ```
 psql
 ```
+## output-
+```
+deepak@deepak-Inspiron-3502:~$ sudo -i -u postgres
+postgres@deepak-Inspiron-3502:~$ psql
+psql (16.1 (Ubuntu 16.1-1.pgdg22.04+1))
+Type "help" for help.
+
+postgres=#
+```
+
 To exit the PostgreSQL prompt:
 ```
 \q
 ```
+## output-
+```
+postgres=# \q
+postgres@deepak-Inspiron-3502:~$
+```
+
 ```
 exit
 ```
-
+## output-
+```
+postgres@deepak-Inspiron-3502:~$ exit
+logout
+deepak@deepak-Inspiron-3502:~$
+```
 
 ## CONNECT KEYCLOAK TO POSTGRES DATABASE USING PODMAN:
 
