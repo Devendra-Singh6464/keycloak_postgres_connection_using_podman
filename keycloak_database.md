@@ -100,8 +100,13 @@ The server has built-in support for different databases. You can query the avail
 
 ## [PostgresSQL](https://www.postgresql.org/docs/current/intro-whatis.html):
    PostgreSQL is an object-relational database management system (ORDBMS) based on POSTGRES, Version 4.2, developed at the University of California at Berkeley Computer Science Department.
-   
 
+
+## postgresql version--
+```
+deepak@deepak-Inspiron-3502:~$ psql --version
+psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+```
 ```
 sudo apt-get update
 ```
