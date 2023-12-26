@@ -238,7 +238,7 @@ podman pod create --name deepak -p 5432:5432 -p 8080:8080
 - Output:
 ```
 podman pod create --name deepak -p 5432:5432 -p 8080:8080
-Container pod ID 
+<Container pod ID> 
 ```
 
 Check running container status :
@@ -269,7 +269,7 @@ podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpasswo
   
 ```
 podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
-container ID
+<container ID>
 ```
 
 Inside the postgres terminal--
@@ -293,23 +293,7 @@ Type "help" for help.
 postgres=#
 ```
 
-Check postgres default databases    
-```
-\l
-```
-- Output:
-```
-   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
------------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
- keycloak  | keycloak | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =Tc/keycloak         +
-           |          |          |                 |            |            |            |           | keycloak=CTc/keycloak
- postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
- template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
-           |          |          |                 |            |            |            |           | postgres=CTc/postgres
- template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
-           |          |          |                 |            |            |            |           | postgres=CTc/postgres
-(4 rows)
-```
+
 stop the postgres terminal
 ```
 ctrl + z
@@ -352,6 +336,24 @@ postgres=# ALTER DATABASE keycloak OWNER TO keycloak;
 ALTER DATABASE 
 postgres=#   
 ```
+Check postgres databases    
+```
+\l
+```
+- Output:
+```
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
+ keycloak  | keycloak | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =Tc/keycloak         +
+           |          |          |                 |            |            |            |           | keycloak=CTc/keycloak
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+           |          |          |                 |            |            |            |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+           |          |          |                 |            |            |            |           | postgres=CTc/postgres
+(4 rows)
+```
+
 Exit the postgres terminal
 ```
 \q
@@ -367,7 +369,7 @@ podman run --pod=deepak -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_A
 - Output:
 ```
 podman run --pod=deepak -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -e KC_DB=postgres -e KC_DB_URL_DATABASE=keycloak -e KC_DB_URL_HOST=0.0.0.0 -e KC_DB_URL_PORT=5432 -e KC_DB_USERNAME=keycloak -e KC_DB_PASSWORD=deepak docker.io/keycloak/keycloak:latest start-dev
-Your CONTAINER ID
+Your <CONTAINER ID>
 deepak@deepak-Inspiron-3502:~$
 ```
 Check container status:
