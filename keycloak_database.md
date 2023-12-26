@@ -1,4 +1,4 @@
-# KeyCloak authentication over multiple database(SIP Creation) 
+# KeyCloak authentication over Postgresql database(SIP Creation) 
 
 ## [Keycloak](https://www.keycloak.org/):
    Open Source Identity, Access Management, authentication to applications and secure services with minimum effort.
@@ -9,18 +9,71 @@ Keycloak provides user federation, strong authentication, user management, fine-
 
 ## [Podman](https://docs.podman.io/en/latest/):
    Podman is a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. Podman provides a command line interface (CLI) familiar to anyone who has used the Docker Container Engine. Most users can simply alias Docker to Podman (alias docker=podman) without any problems.
-
+   
+## Prerequisite
+```
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.3 LTS
+Release:	22.04
+Codename:	jammy
+```
 
 ## Podman install
-```sh
+```
 sudo apt-get update
 ```
 ```
+deepak@deepak-Inspiron-3502:~$ sudo apt-get update
+[sudo] password for deepak: 
+Hit:1 http://packages.microsoft.com/repos/code stable InRelease
+Ign:2 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/4.4 InRelease      
+Ign:3 https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 InRelease      
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease                 
+Hit:5 https://dl.google.com/linux/chrome/deb stable InRelease                  
+Hit:6 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/4.4 Release        
+Hit:7 http://in.archive.ubuntu.com/ubuntu jammy InRelease                      
+Hit:8 https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy InRelease   
+Get:10 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]    
+Get:11 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]     
+Hit:12 https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 Release       
+Hit:13 https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 InRelease
+Hit:15 https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease           
+Get:16 http://ppa.launchpad.net/tektoncd/cli/ubuntu eoan InRelease [15.9 kB]   
+Hit:17 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 3EFE0E0A2F2F60AA
+Reading package lists... Done
+W: https://repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/4.4/Release.gpg: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/5.0/Release.gpg: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease' doesn't support architecture 'i386'
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+```
+
+```
 sudo apt-get upgrade
+```
+```
+deepak@deepak-Inspiron-3502:~$ sudo apt-get upgrade
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  gir1.2-totem-1.0 gir1.2-totemplparser-1.0 libcdio-cdda2 libcdio-paranoia2
+  libcdio19 libnetplan0 libnfs13 librsync2
+Use 'sudo apt autoremove' to remove them.
+The following packages have been kept back:
+  python3-update-manager update-manager update-manager-core
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
 ```  
 sudo apt install podman
 ```
+## output-
+```
+podman version 3.4.4
+```
+
 ``` 
 sudo apt-get update
 ```
@@ -50,7 +103,34 @@ The server has built-in support for different databases. You can query the avail
    
 
 ```
-sudo  apt update
+sudo apt-get update
+```
+## output-
+```
+deepak@deepak-Inspiron-3502:~$ sudo apt-get update
+[sudo] password for deepak: 
+Hit:1 http://packages.microsoft.com/repos/code stable InRelease
+Ign:2 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/4.4 InRelease      
+Ign:3 https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 InRelease      
+Hit:4 https://download.docker.com/linux/ubuntu jammy InRelease                 
+Hit:5 https://dl.google.com/linux/chrome/deb stable InRelease                  
+Hit:6 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/4.4 Release        
+Hit:7 http://in.archive.ubuntu.com/ubuntu jammy InRelease                      
+Hit:8 https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy InRelease   
+Get:10 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]    
+Get:11 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]     
+Hit:12 https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 Release       
+Hit:13 https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 InRelease
+Hit:15 https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease           
+Get:16 http://ppa.launchpad.net/tektoncd/cli/ubuntu eoan InRelease [15.9 kB]   
+Hit:17 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 3EFE0E0A2F2F60AA
+Reading package lists... Done
+W: https://repo.mongodb.org/apt/ubuntu/dists/jammy/mongodb-org/4.4/Release.gpg: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/5.0/Release.gpg: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease' doesn't support architecture 'i386'
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
 ```
  Create the file repository configuration:
 ```
