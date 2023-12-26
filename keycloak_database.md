@@ -19,9 +19,12 @@ Codename:	jammy
 ```
 
 ## Podman install
+
+## Command-
 ```
 sudo apt-get update
 ```
+## Output-
 ```
 deepak@deepak-Inspiron-3502:~$ sudo apt-get update
 [sudo] password for deepak: 
@@ -49,6 +52,7 @@ N: Updating from such a repository can't be done securely, and is therefore disa
 N: See apt-secure(8) manpage for repository creation and user configuration details.
 ```
 
+## Command -
 ```
 sudo apt-get upgrade
 ```
@@ -67,6 +71,7 @@ The following packages have been kept back:
   python3-update-manager update-manager update-manager-core
 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
+## Command -
 ```  
 sudo apt install podman
 ```
@@ -74,7 +79,7 @@ sudo apt install podman
 ```
 podman version 3.4.4
 ```
-
+## Command-
 ``` 
 sudo apt-get update
 ```
@@ -107,10 +112,17 @@ The server has built-in support for different databases. You can query the avail
 
 
 ## postgresql version--
+How to check Postgresql version in ubuntu-
+## Command -
+```
+psql --version
+```
+## Output-
 ```
 deepak@deepak-Inspiron-3502:~$ psql --version
 psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
 ```
+## Command-
 ```
 sudo apt-get update
 ```
@@ -142,21 +154,27 @@ N: Updating from such a repository can't be done securely, and is therefore disa
 N: See apt-secure(8) manpage for repository creation and user configuration details.
 ```
  Create the file repository configuration:
+
+ ## Command-
 ```
 sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 ```
  Import the repository signing key:
+
+ ## Command -
 ```
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
  Update the package lists:
- 
+
+ ## Command -
 ```
 sudo apt install postgresql postgresql-contrib
 ```
 ## Another install postgresql source-
 
 [Postgresql install hint source in ubuntu](https://www.commandprompt.com/education/how-to-install-postgresql-database-on-ubuntu/)
+## Command -
 ```
 sudo apt-get update
 ```
@@ -164,6 +182,7 @@ sudo apt-get update
 ## Verify PostgreSQL Installation:
 Once the installation is complete, PostgreSQL should start automatically. You can check the status of the PostgreSQL service to ensure it's running:
 
+## Command -
 ```
 sudo systemctl status postgresql
 ```
@@ -183,7 +202,7 @@ Dec 20 16:15:34 deepak-Inspiron-3502 systemd[1]: Finished PostgreSQL RDBMS.
 lines 1-9/9 (END)
 ```
 If postgresql.service not active so run this command
-
+## Command -
 ```
 sudo systemctl start postgresql.service
 ```
@@ -192,6 +211,7 @@ Then: ctrl + z
 
 To access PostgreSQL, you can switch to the default postgres user, which is automatically created during installation:
 
+## Command -
 ```
 sudo -i -u postgres
 ```
@@ -202,6 +222,7 @@ postgres@deepak-Inspiron-3502:~$
 ```
 
 Once you're logged in as the postgres user, access the PostgreSQL prompt by typing:
+## Command -
 ```
 psql
 ```
@@ -216,15 +237,17 @@ postgres=#
 ```
 
 To exit the PostgreSQL prompt:
+## Command -
 ```
 \q
 ```
 ## output-
+
 ```
 postgres=# \q
 postgres@deepak-Inspiron-3502:~$
 ```
-
+## Command -
 ```
 exit
 ```
@@ -239,6 +262,7 @@ deepak@deepak-Inspiron-3502:~$
 
 1. First Step  —
 - Create pod :
+## Command - 
 ```
 podman pod create --name deepak -p 5432:5432 -p 8080:8080
 ```
@@ -249,6 +273,7 @@ podman pod create --name deepak -p 5432:5432 -p 8080:8080
 ```
 
 Check running container status :
+## Command -
 ```
 podman ps 
 ```
@@ -258,6 +283,7 @@ CONTAINER ID  IMAGE                               COMMAND     CREATED     STATUS
 ```
 
 Check container status:
+## Command -
 ```
 podman ps -a
 ```
@@ -269,6 +295,7 @@ CONTAINER ID  IMAGE                               COMMAND     CREATED     STATUS
 ```
 
 2. Second Step —
+## Command -
 ```
 podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
@@ -280,6 +307,7 @@ podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpasswo
 ```
 
 Inside the postgres terminal--
+ ## Command -
 ```
 podman exec -it some-postgres bash
 ```
@@ -300,13 +328,13 @@ Type "help" for help.
 postgres=#
 ```
 
-
 stop the postgres terminal
 ```
 ctrl + z
 ```
 
 - Create postgres database, try these queries:
+## Query -
 ```
 CREATE DATABASE keycloak;
 ```
@@ -316,6 +344,7 @@ postgres=# CREATE DATABASE keycloak;
 CREATE DATABASE
 postgres=# 
 ```
+## Query -
 ```
 CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
 ```
@@ -325,6 +354,7 @@ postgres=# CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
 CREATE ROLE
 postgres=# 
 ```
+## Query -
 ```
 GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
 ```
@@ -334,6 +364,7 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
 GRANT ALL
 postgres=# 
 ```
+## Query -
 ```
 ALTER DATABASE keycloak OWNER TO keycloak;
 ```
@@ -369,7 +400,9 @@ Exit the postgres terminal
 exit
 ```
  
-3. THIRD STEP:  
+3. THIRD STEP:
+     
+## Command -
 ``` 
 podman run --pod=deepak -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -e KC_DB=postgres -e KC_DB_URL_DATABASE=keycloak -e KC_DB_URL_HOST=0.0.0.0 -e KC_DB_URL_PORT=5432 -e KC_DB_USERNAME=keycloak -e KC_DB_PASSWORD=deepak docker.io/keycloak/keycloak:latest start-dev
 ```
@@ -380,6 +413,7 @@ Your <CONTAINER ID>
 deepak@deepak-Inspiron-3502:~$
 ```
 Check container status:
+## Command -
 ```
 podman ps -a
 ```
@@ -391,6 +425,7 @@ localhost:8080
 
 4. FINAL STEP:
 Going to root directory
+## Command -
 ```
 podman exec -it some-postgres bash
 ```
@@ -399,7 +434,8 @@ podman exec -it some-postgres bash
 podman exec -it some-postgres bash
 root@deepak:/# 
 ```
- ```
+## Command -
+```
 psql -U keycloak
 ```
 - Output:
