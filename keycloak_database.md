@@ -492,6 +492,71 @@ keycloak=#
 ```
 \dt
 ```
+- Output:  
+```  
+keycloak=> \dt
+                     List of relations
+ Schema |             Name              | Type  |  Owner   
+--------+-------------------------------+-------+----------
+ public | admin_event_entity            | table | keycloak
+ public | associated_policy             | table | keycloak
+ public | authentication_execution      | table | keycloak
+ public | authentication_flow           | table | keycloak
+ public | authenticator_config          | table | keycloak
+ public | authenticator_config_entry    | table | keycloak
+ public | broker_link                   | table | keycloak
+ public | client                        | table | keycloak
+ public | client_attributes             | table | keycloak
+ public | client_auth_flow_bindings     | table | keycloak
+ public | client_initial_access         | table | keycloak
+ public | client_node_registrations     | table | keycloak
+ public | client_scope                  | table | keycloak
+ public | client_scope_attributes       | table | keycloak
+ public | client_scope_client           | table | keycloak
+ public | client_scope_role_mapping     | table | keycloak
+ public | client_session                | table | keycloak
+ public | client_session_auth_status    | table | keycloak
+ public | client_session_note           | table | keycloak
+ public | client_session_prot_mapper    | table | keycloak
+ public | client_session_role           | table | keycloak
+ public | client_user_session_note      | table | keycloak
+ public | component                     | table | keycloak
+ public | component_config              | table | keycloak
+ public | composite_role                | table | keycloak
+ public | credential                    | table | keycloak
+ public | databasechangelog             | table | keycloak
+ public | databasechangeloglock         | table | keycloak
+ public | default_client_scope          | table | keycloak
+ public | event_entity                  | table | keycloak
+ public | fed_user_attribute            | table | keycloak
+ public | fed_user_consent              | table | keycloak
+ public | fed_user_consent_cl_scope     | table | keycloak
+ public | fed_user_credential           | table | keycloak
+ public | fed_user_group_membership     | table | keycloak
+ public | fed_user_required_action      | table | keycloak
+ public | fed_user_role_mapping         | table | keycloak
+ public | federated_identity            | table | keycloak
+ public | federated_user                | table | keycloak
+ public | group_attribute               | table | keycloak
+ public | group_role_mapping            | table | keycloak
+ public | identity_provider             | table | keycloak
+ public | identity_provider_config      | table | keycloak
+ public | identity_provider_mapper      | table | keycloak
+ public | idp_mapper_config             | table | keycloak
+ public | keycloak_group                | table | keycloak
+ public | keycloak_role                 | table | keycloak
+ public | migration_model               | table | keycloak
+ public | offline_client_session        | table | keycloak
+ public | offline_user_session          | table | keycloak
+ public | policy_config                 | table | keycloak
+ public | protocol_mapper               | table | keycloak
+ public | protocol_mapper_config        | table | keycloak
+ public | realm                         | table | keycloak
+ public | realm_attribute               | table | keycloak
+ public | realm_default_groups          | table | keycloak
+ public | realm_enabled_event_types     | table | keycloak
+ --More--
+```
 
 ## [Welcome to Keycloak page](https://www.keycloak.org/getting-started/getting-started-podman):
 Click on `Administrations Console`
