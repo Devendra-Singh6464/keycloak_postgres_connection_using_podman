@@ -211,12 +211,10 @@ if you follow all command but your postgres version not 16.1 so follow this -
 Click the link then click, v16.1 then postgresql-16.1.tar.bz2    
 
 ## After installation keycloak TAR.GZ(sha1) file unzip this file 
-Go, files > Download > right click (on postgres TAR.GZ(sha1) file and) > click Exteact Here
-
 
 [postgres](https://www.postgresql.org/ftp/source/)
 
-
+Go, files > Download > right click (on postgres TAR.GZ(sha1) file and) > click Exteact Here
 
 ## Command -
 ```
