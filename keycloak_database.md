@@ -207,6 +207,17 @@ deepak@deepak-Inspiron-3502:~$ psql --version
 psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
 ```
 
+if you follow all command but your postgres version not 16.1 so follow this -  
+Click the link then click, v16.1 then postgresql-16.1.tar.bz2    
+
+## After installation keycloak TAR.GZ(sha1) file unzip this file 
+Go, files > Download > right click (on postgres TAR.GZ(sha1) file and) > click Exteact Here
+
+
+[postgres](https://www.postgresql.org/ftp/source/)
+
+
+
 ## Command -
 ```
 sudo systemctl status postgresql
