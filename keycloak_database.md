@@ -488,11 +488,7 @@ Type "help" for help.
 
 keycloak=#
 ```
-
-```
-\l
-```
-
+### Command-
 ```
 \dt
 ```
