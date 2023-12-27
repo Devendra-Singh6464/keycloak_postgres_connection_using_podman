@@ -492,7 +492,9 @@ keycloak=#
 ```
 \dt
 ```
-- Output:  
+- Output:
+![image](https://github.com/Devendra-Singh6464/keycloak_postgres_connection_using_podman/assets/136952464/a41c732a-7fe7-4960-996c-af949b2375e4)
+
 ```  
 keycloak=> \dt
                      List of relations
