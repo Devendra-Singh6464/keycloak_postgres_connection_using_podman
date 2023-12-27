@@ -319,6 +319,15 @@ CONTAINER ID  IMAGE                               COMMAND     CREATED     STATUS
 713a2756f29f  k8s.gcr.io/pause:3.5                            7 days ago  Up 24 hours ago  0.0.0.0:5432->5432/tcp, 0.0.0.0:8080->8080/tcp  82148f547b1b-infra
 ```
 
+if your podman pod status not up so please start podman pod
+
+### command-
+
+podman pod start <podman_names>
+```
+podman pod start 82148
+```
+
 2. Second Step —
 ## Command -
 ```
