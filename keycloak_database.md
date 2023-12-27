@@ -413,7 +413,7 @@ Check postgres databases
 \l
 ```
 - Output:
-  ```
+```
    Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
 -----------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
  keycloak  | keycloak | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =Tc/keycloak         +
@@ -425,6 +425,7 @@ Check postgres databases
            |          |          |                 |            |            |            |           | postgres=CTc/postgres
 (4 rows)
 ```
+
 Exit the postgres terminal
 ```
 \q
@@ -479,9 +480,11 @@ Type "help" for help.
 
 keycloak=#
 ```
+
 ```
 \l
 ```
+
 ```
 \dt
 ```
