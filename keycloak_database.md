@@ -251,7 +251,6 @@ psql
 ```
 ## output-
 ```
-deepak@deepak-Inspiron-3502:~$ sudo -i -u postgres
 postgres@deepak-Inspiron-3502:~$ psql
 psql (16.1 (Ubuntu 16.1-1.pgdg22.04+1))
 Type "help" for help.
@@ -327,12 +326,17 @@ podman pod start <podman_names>
 ```
 podman pod start 82148
 ```
+or
+```
+podman pod start --latest
+```
 
 2. Second Step —
 ## Command -
 ```
 podman run --pod=deepak --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
+
 - Output:
   
 ```
@@ -350,6 +354,7 @@ podman exec -it some-postgres bash
 podman exec -it some-postgres bash
 root@deepak:/# 
 ```
+### command-
 ```
 psql -U postgres
 ```
@@ -368,7 +373,7 @@ ctrl + z
 ```
 
 - Create postgres database, try these queries:
-## Query -
+## Query run-
 ```
 CREATE DATABASE keycloak;
 ```
@@ -378,7 +383,7 @@ postgres=# CREATE DATABASE keycloak;
 CREATE DATABASE
 postgres=# 
 ```
-## Query -
+## Query run-
 ```
 CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
 ```
@@ -388,7 +393,7 @@ postgres=# CREATE ROLE keycloak WITH LOGIN PASSWORD 'deepak';
 CREATE ROLE
 postgres=# 
 ```
-## Query -
+## Query run-
 ```
 GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
 ```
@@ -398,7 +403,7 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;
 GRANT ALL
 postgres=# 
 ```
-## Query -
+## Query run-
 ```
 ALTER DATABASE keycloak OWNER TO keycloak;
 ```
@@ -408,7 +413,8 @@ postgres=# ALTER DATABASE keycloak OWNER TO keycloak;
 ALTER DATABASE 
 postgres=#   
 ```
-Check postgres databases    
+Check postgres databases-
+### command-
 ```
 \l
 ```
@@ -427,9 +433,11 @@ Check postgres databases
 ```
 
 Exit the postgres terminal
+### command-
 ```
 \q
 ```
+### command-
 ```
 exit
 ```
