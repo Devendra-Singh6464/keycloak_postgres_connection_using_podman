@@ -11,21 +11,20 @@ Keycloak provides user federation, strong authentication, user management, fine-
    Podman is a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. Podman provides a command line interface (CLI) familiar to anyone who has used the Docker Container Engine. Most users can simply alias Docker to Podman (alias docker=podman) without any problems.
    
 ## Prerequisite
-```
+
 Distributor ID:	Ubuntu
 Description:	Ubuntu 22.04.3 LTS
 Release:	22.04
 Codename:	jammy
-```
+
 postgresql version-
-```
+
 psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
-```
+
 
 podman version-
-```
+
 podman version 3.4.4
-```
 
 ## Podman install
 
@@ -127,10 +126,6 @@ The server has built-in support for different databases. You can query the avail
 
 | Database           | Option value | Tested Version |
 | -----------------  |  ----------- | -------------- |
-|MariaDB Server      |  mariadb     |     10.11      |
-|Microsoft SQL Server|    mssql     |     2022       |
-|MySQL               |    mysql     |      8.0       |
-|Oracle Database     |    Oracle    |     19.3       |
 |PostgreSQL          |  postgres    |      16.1      |
 
  
@@ -276,6 +271,8 @@ To exit the PostgreSQL prompt:
 postgres=# \q
 postgres@deepak-Inspiron-3502:~$
 ```
+or 
+
 ## Command -
 ```
 exit
