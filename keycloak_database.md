@@ -134,17 +134,6 @@ The server has built-in support for different databases. You can query the avail
    PostgreSQL is an object-relational database management system (ORDBMS) based on POSTGRES, Version 4.2, developed at the University of California at Berkeley Computer Science Department.
 
 
-## postgresql version--
-Postgresql version-
-## Command -
-```
-psql --version
-```
-## Output-
-```
-deepak@deepak-Inspiron-3502:~$ psql --version
-psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
-```
 ## Command-
 ```
 sudo apt-get update
@@ -204,6 +193,19 @@ sudo apt-get update
 
 ## Verify PostgreSQL Installation:
 Once the installation is complete, PostgreSQL should start automatically. You can check the status of the PostgreSQL service to ensure it's running:
+
+
+## postgresql version--
+Postgresql version-
+## Command -
+```
+psql --version
+```
+## Output-
+```
+deepak@deepak-Inspiron-3502:~$ psql --version
+psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+```
 
 ## Command -
 ```
