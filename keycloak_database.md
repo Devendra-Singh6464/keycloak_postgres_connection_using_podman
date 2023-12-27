@@ -287,6 +287,54 @@ deepak@deepak-Inspiron-3502:~$
 ## CONNECT KEYCLOAK TO POSTGRES DATABASE USING PODMAN:
 
 1. First Step  —
+   
+- If you don't have postgres and keycloak images on your server,pull them first:
+```
+podman pull docker.io/library/postgres
+```
+### Output-
+```
+deepak@deepak-Inspiron-3502:~$ podman pull docker.io/library/postgres  
+Trying to pull docker.io/library/postgres:latest...
+Getting image source signatures
+Copying blob 85f7bca87921 done  
+Copying blob af107e978371 done  
+Copying blob 644cfda281a1 done  
+Copying blob 1a83ab26a0f0 done  
+Copying blob 12bab27fafd3 done  
+Copying blob 948f1cf08e62 done  
+Copying blob 03299695f2b9 done  
+Copying blob 6e36bf1505f3 done  
+Copying blob 83b026289c5c done  
+Copying blob a35465a6a76a done  
+Copying blob c158e73dda41 done  
+Copying blob 264ae53c0064 done  
+Copying blob 2e3c2c5fbb6d done  
+Copying blob 08c5357f23b5 done  
+Copying config 398d34d3cc done  
+Writing manifest to image destination
+Storing signatures
+398d34d3cc5e29c86077dbf95ad9da223c3a2d0227d12012087da9d468da9d5b
+```
+
+```
+podman pull quay.io/keycloak/keycloak
+```
+### Output-
+```
+deepak@deepak-Inspiron-3502:~$ podman pull quay.io/keycloak/keycloak
+Trying to pull quay.io/keycloak/keycloak:latest...
+Getting image source signatures
+Copying blob f72461870632 done  
+Copying blob 65b190d0545b done  
+Copying blob 7e11c5ba1fd2 done  
+Copying blob a4503341e3e7 done  
+Copying config 33825b7d2d done  
+Writing manifest to image destination
+Storing signatures
+33825b7d2d9e317215939851e10b1e184b4f876de1b5b25cf448e425c47802bd
+```
+
 - Create pod :
 ## Command - 
 ```
