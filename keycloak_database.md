@@ -77,6 +77,26 @@ sudo apt install podman
 ```
 ## output-
 ```
+deepak@deepak-Inspiron-3502:~$ sudo apt install podman
+[sudo] password for deepak: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+podman is already the newest version (3.4.4+ds1-1ubuntu1.22.04.2).
+The following packages were automatically installed and are no longer required:
+  gir1.2-totem-1.0 gir1.2-totemplparser-1.0 libcdio-cdda2 libcdio-paranoia2
+  libcdio19 libnetplan0 libnfs13 librsync2
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+```
+I have already install podman so comed this output but if you have not podman so your podman installing this command
+
+## Command- 
+```
+Podman -v
+```
+## Output- 
+```
 podman version 3.4.4
 ```
 ## Command-
