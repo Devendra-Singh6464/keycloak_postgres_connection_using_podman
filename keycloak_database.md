@@ -17,6 +17,15 @@ Description:	Ubuntu 22.04.3 LTS
 Release:	22.04
 Codename:	jammy
 ```
+postgresql version-
+```
+psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+```
+
+podman version-
+```
+podman version 3.4.4
+```
 
 ## Podman install
 
@@ -89,7 +98,7 @@ The following packages were automatically installed and are no longer required:
 Use 'sudo apt autoremove' to remove them.
 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
-I have already install podman so comed this output but if you have not podman so your podman installing this command
+I'm already install podman ,so I got this output. If you don't have podman so it will be installed.
 
 ## Command- 
 ```
@@ -132,7 +141,7 @@ The server has built-in support for different databases. You can query the avail
 
 
 ## postgresql version--
-How to check Postgresql version in ubuntu-
+Postgresql version-
 ## Command -
 ```
 psql --version
