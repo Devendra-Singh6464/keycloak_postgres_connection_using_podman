@@ -8,14 +8,14 @@ Keycloak provides user federation, strong authentication, user management, fine-
 ## Get started with Keycloak on Podman
 
 ## [Podman](https://docs.podman.io/en/latest/):
-   Podman is a daemonless, open source, Linux native tool designed to make it easy to find, run, build, share and deploy applications using Open Containers Initiative (OCI) Containers and Container Images. Podman provides a command line interface (CLI) familiar to anyone who has used the Docker Container Engine. Most users can simply alias Docker to Podman (alias docker=podman) without any problems.
+   Podman is a tool used to create, manage, and run containers. It allows users to package applications and their dependencies into isolated environments, making it easier to develop, deploy, and manage software.
    
 ## Prerequisite
 
-Distributor ID:	Ubuntu
-Description:	Ubuntu 22.04.3 LTS
-Release:	22.04
-Codename:	jammy
+Distributor ID:	Ubuntu  
+Description:	Ubuntu 22.04.3 LTS  
+Release:	22.04  
+Codename:	jammy  
 
 postgresql version-
 
