@@ -389,6 +389,25 @@ or
 ```
 podman pod start --latest
 ```
+if you getting this error
+Error: error starting container 2887e89f37ee65664b65cd271e07491f813724c0a7a59485cba9a57fca91a217: rootlessport listen tcp 0.0.0.0:5432: bind: address already in use
+Please follow the bellow steps:
+```
+sudo lsof -i :5432
+```
+### Output-
+COMMAND     PID     USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+postgres 106190 postgres    5u  IPv4 1225159      0t0  TCP localhost:postgresql (LISTEN)
+
+### Command-
+
+Syntax--
+```
+sudo kill -9 <PID>
+```
+```
+sudo kill -9 106190
+```
 
 2. Second Step —
 ## Command -
