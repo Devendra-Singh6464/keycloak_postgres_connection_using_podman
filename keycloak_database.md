@@ -25,13 +25,14 @@ psql (PostgreSQL) 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
 
 podman version 3.4.4
 
+
 ## Podman install
 
-## Command-
+### Command-
 ```
 sudo apt-get update
 ```
-## Output-
+### Output-
 ```
 deepak@deepak-Inspiron-3502:~$ sudo apt-get update
 [sudo] password for deepak: 
