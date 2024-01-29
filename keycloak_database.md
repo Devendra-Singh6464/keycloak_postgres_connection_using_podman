@@ -101,15 +101,11 @@ I'm already install podman ,so I got this output. If you don't have podman so it
 
 ## Command- 
 ```
-Podman -v
+podman -v
 ```
 ## Output- 
 ```
 podman version 3.4.4
-```
-## Command-
-``` 
-sudo apt-get update
 ```
 
 Install  keycloak....
@@ -188,9 +184,6 @@ sudo apt install postgresql postgresql-contrib
 
 [Postgresql install hint source in ubuntu](https://www.commandprompt.com/education/how-to-install-postgresql-database-on-ubuntu/)
 ## Command -
-```
-sudo apt-get update
-```
 
 ## Verify PostgreSQL Installation:
 Once the installation is complete, PostgreSQL should start automatically. You can check the status of the PostgreSQL service to ensure it's running:
